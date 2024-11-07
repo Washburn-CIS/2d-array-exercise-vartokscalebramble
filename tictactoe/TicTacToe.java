@@ -21,8 +21,8 @@ public class TicTacToe {
             System.out.print("Enter column for move (1-3): ");
             int c = in.nextInt() - 1;
 
-             // challenge: prevent the turn from advancing if the user entered bad coordinates
-            if (r * c > 4 || board[r][c] != '.') {
+             // prevent the turn from advancing if the user entered bad coordinates
+            if (r * c > 4 || r < 0 || c < 0 || board[r][c] != '.') {
                 System.out.println("Invalid coordinates!");
                 continue;
             }
@@ -59,7 +59,7 @@ public class TicTacToe {
             }
         }
 
-        // TODO: three-in-a-row vertically 
+        // three-in-a-row vertically 
         for(int c=0; c<3; c++) {
             if(board[0][c] != '.' && board[0][c] == board[1][c] && board[1][c] == board[2][c]) {
                 return board[0][c];
@@ -69,7 +69,7 @@ public class TicTacToe {
         if(board[0][0] != '.' && board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
             return board[0][0];
         }
-        // TODO: check other diagonal
+        // check other diagonal
         if(board[2][0] != '.' && board[2][0] == board[1][1] && board[1][1] == board[0][2]) {
             return board[2][0];
         }
